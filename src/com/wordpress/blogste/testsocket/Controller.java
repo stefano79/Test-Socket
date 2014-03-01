@@ -2,9 +2,7 @@ package com.wordpress.blogste.testsocket;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.IOException;
 import java.net.InetAddress;
-import java.net.Socket;
 import java.net.UnknownHostException;
 import java.util.Observable;
 import java.util.Observer;

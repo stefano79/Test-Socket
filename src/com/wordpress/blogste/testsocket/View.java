@@ -17,15 +17,12 @@ import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
 import javax.swing.UIManager;
-
 import java.awt.FlowLayout;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
-import java.io.Serializable;
-
 import javax.swing.ScrollPaneConstants;
 
-public class View extends JFrame implements Serializable {
+public class View extends JFrame {
 
 	/**
 	 * 
@@ -53,6 +50,14 @@ public class View extends JFrame implements Serializable {
 	 * Create the application.
 	 */
 	public View() {
+		
+		// Abilitazione look oggetti come il sistema operativo
+				try {
+					UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+				} catch (Throwable e) {
+					e.printStackTrace();
+				}
+		
 		setTitle("Test Socket");
 		setBounds(100, 100, 607, 409);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -407,10 +412,11 @@ public class View extends JFrame implements Serializable {
 			Integer.parseInt(textFieldPort_server.getText());
 			return textFieldPort_server.getText();
 		} catch (NumberFormatException e) {
-			this.writeConsole_Server("Error: Can't assign requested port" + "\n");
+			this.writeConsole_Server("Error: Can't assign requested port"
+					+ "\n");
 			return null;
 		}
-		
+
 	}
 
 	public void setStateBtnConnect_Server(boolean state) {
@@ -473,7 +479,8 @@ public class View extends JFrame implements Serializable {
 			Integer.parseInt(textFieldPort_client.getText());
 			return textFieldPort_client.getText();
 		} catch (NumberFormatException e) {
-			this.writeConsole_Client("Error: Can't assign requested port" + "\n");
+			this.writeConsole_Client("Error: Can't assign requested port"
+					+ "\n");
 			return null;
 		}
 	}
